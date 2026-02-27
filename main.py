@@ -4,9 +4,15 @@
 
 import random
 
+final_list = []
+
 for i in range(100):
     # generate h (0) or t (1)
     h_or_t = random.randint(0, 1)
     if h_or_t == 0:
-        print(f'heads')
-    else: print(f'tails')
+        final_list.append('H')
+    else:
+        final_list.append('T')
+
+# save to a list
+print(f'final list: {final_list}')
