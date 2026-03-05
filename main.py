@@ -5,66 +5,66 @@
 import random
 
 # the list holding 100 T or H
-final_list = []
+list_of_hundred = []
 # increment the counter for the current item, and reset it if the next item does not match
-six_counter = 0
+streak_counter = 0
 # temp list
-temp_list = []
+matching_list = []
 # total matches of six
 match_counter = 0
 # 10k counter
-ten_thousand_counter = 0
+total_experiments = 0
 # set counter
-set_counter = 10000
+experiment_count = 10000
 
 # perform this 10k times
-while ten_thousand_counter < set_counter:
+while total_experiments < experiment_count:
     # increment ten thousand counter
-    ten_thousand_counter += 1
-    print(f'Starting run: {ten_thousand_counter}')
+    total_experiments += 1
+    print(f'Starting run: {total_experiments}')
 
     for i in range(100):
         # generate h (0) or t (1)
         h_or_t = random.randint(0, 1)
         if h_or_t == 0:
-            final_list.append('H')
+            list_of_hundred.append('H')
         else:
-            final_list.append('T')
+            list_of_hundred.append('T')
 
-    # check current length final_list
-    print(f'Final list length: {len(final_list)}')
+    # check current length list_of_hundred
+    print(f'List of 100: {len(list_of_hundred)}')
 
-    for i in range(len(final_list) - 1):
-        current_value = final_list[i]
-        next_value = final_list[i + 1]
+    for i in range(len(list_of_hundred) - 1):
+        current_value = list_of_hundred[i]
+        next_value = list_of_hundred[i + 1]
         # print the temp list
-        print(f'temp list: {temp_list}')
-        # check if there are six matches of either T or H
-        if six_counter == 5:
+        print(f'Matching list: {matching_list}')
+        # check if there are six matches of either T or H. we only need streak_counter to reach 5, because we are matching the current value to the next value
+        if streak_counter == 5:
             print('WE GOT 6 MATCHES! INCREASE MATCH COUNTER BY 1')
-            print(f'match counter was: {match_counter}')
+            print(f'Match counter was: {match_counter}')
             # increment the match counter to keep track
             match_counter += 1
-            print(f'match counter is now: {match_counter}')
+            print(f'Match counter is now: {match_counter}')
             # wipe the list once we have six matches and start again
-            temp_list = []
+            matching_list = []
         if current_value == next_value:
             print(f'WE FOUND A MATCH: current value: {current_value}, next value: {next_value}')
-            temp_list.append(current_value)
-            six_counter += 1
+            matching_list.append(current_value)
+            streak_counter += 1
         else:
             # if the values do not match, wipe the list and reset the six counter
             print(f'Current value: {current_value} does not match next value: {next_value}')
-            temp_list = []
-            six_counter = 0
+            matching_list = []
+            streak_counter = 0
     # message that the first set has finished
-    print(f'Run {ten_thousand_counter} has finished')
-    print(f'Total matches for run {ten_thousand_counter}: {match_counter}')
+    print(f'Experiment {total_experiments} has finished')
+    print(f'Total matches for experiment {total_experiments}: {match_counter}')
     print(f'======================================================')
     # reset counters
-    temp_list = []
-    final_list = []
-    six_counter = 0
+    matching_list = []
+    list_of_hundred = []
+    streak_counter = 0
 
 # total number six matches
-print(f'Total matches from {ten_thousand_counter} runs: {match_counter}')
+print(f'Total matches from {total_experiments} experiments: {match_counter}')
