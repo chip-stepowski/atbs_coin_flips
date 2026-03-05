@@ -70,3 +70,5 @@ while total_experiments < experiment_count:
 
 # total number six matches
 print(f'Total matches from {total_experiments} experiments: {match_counter}')
+# percentage that a streak occurred
+print(f'Percentage of streaks that occurred: {match_counter / total_experiments:.2%}')
