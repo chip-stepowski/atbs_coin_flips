@@ -39,21 +39,23 @@ while total_experiments < experiment_count:
         next_value = list_of_hundred[i + 1]
         # print the temp list
         print(f'Matching list: {matching_list}')
-        # check if there are six matches of either T or H. we only need streak_counter to reach 5, because we are matching the current value to the next value
+        # check if there are six matches of either T or H. we only need streak_counter to reach 5 because it compares the current value (5) to the next (6, a match). if we set streak_counter to 6, it would technically be 7 coins.
         if streak_counter == 5:
-            print('WE GOT 6 MATCHES! INCREASE MATCH COUNTER BY 1')
+            print('Six matches!')
+            # add the next value to the matching_list for a visual "completeness" of six
+            matching_list.append(next_value)
             print(f'Match counter was: {match_counter}')
             # increment the match counter to keep track
             match_counter += 1
             print(f'Match counter is now: {match_counter}')
-            # wipe the list once we have six matches and start again
-            matching_list = []
+            # once we have a streak, break the loop to start a new experiement
+            break
         if current_value == next_value:
             print(f'WE FOUND A MATCH: current value: {current_value}, next value: {next_value}')
             matching_list.append(current_value)
             streak_counter += 1
         else:
-            # if the values do not match, wipe the list and reset the six counter
+            # if the values do not match, wipe the list and reset the streak counter
             print(f'Current value: {current_value} does not match next value: {next_value}')
             matching_list = []
             streak_counter = 0
