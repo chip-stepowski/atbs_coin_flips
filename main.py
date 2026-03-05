@@ -13,12 +13,15 @@ temp_list = []
 # total matches of six
 match_counter = 0
 # 10k counter
-ten_thousand_counter = 1
+ten_thousand_counter = 0
+# set counter
+set_counter = 10000
 
 # perform this 10k times
-while ten_thousand_counter <= 10:
+while ten_thousand_counter < set_counter:
+    # increment ten thousand counter
+    ten_thousand_counter += 1
     print(f'Starting run: {ten_thousand_counter}')
-    print(f'===================================')
 
     for i in range(100):
         # generate h (0) or t (1)
@@ -27,6 +30,9 @@ while ten_thousand_counter <= 10:
             final_list.append('H')
         else:
             final_list.append('T')
+
+    # check current length final_list
+    print(f'Final list length: {len(final_list)}')
 
     for i in range(len(final_list) - 1):
         current_value = final_list[i]
@@ -52,11 +58,12 @@ while ten_thousand_counter <= 10:
             temp_list = []
             six_counter = 0
     # message that the first set has finished
-    print(f'Set {ten_thousand_counter} has finished')
-    # reset the list for the next set
+    print(f'Run {ten_thousand_counter} has finished')
+    print(f'Total matches for run {ten_thousand_counter}: {match_counter}')
+    print(f'======================================================')
+    # reset the temp and final list for the next set
     temp_list = []
-    # increment ten thousand counter
-    ten_thousand_counter += 1
+    final_list = []
 
 # total number six matches
-print(f'total matches from 10 runs: {match_counter}')
+print(f'Total matches from {ten_thousand_counter} runs: {match_counter}')
