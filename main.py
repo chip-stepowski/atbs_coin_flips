@@ -40,7 +40,7 @@ while ten_thousand_counter < set_counter:
         # print the temp list
         print(f'temp list: {temp_list}')
         # check if there are six matches of either T or H
-        if six_counter == 6:
+        if six_counter == 5:
             print('WE GOT 6 MATCHES! INCREASE MATCH COUNTER BY 1')
             print(f'match counter was: {match_counter}')
             # increment the match counter to keep track
@@ -61,9 +61,10 @@ while ten_thousand_counter < set_counter:
     print(f'Run {ten_thousand_counter} has finished')
     print(f'Total matches for run {ten_thousand_counter}: {match_counter}')
     print(f'======================================================')
-    # reset the temp and final list for the next set
+    # reset counters
     temp_list = []
     final_list = []
+    six_counter = 0
 
 # total number six matches
 print(f'Total matches from {ten_thousand_counter} runs: {match_counter}')
